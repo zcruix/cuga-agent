@@ -1,3 +1,8 @@
+> **Elevate AI Agent** is the [Elevate AI Technologies LLC](https://github.com/zcruix/cuga-agent) fork of
+> [CUGA](https://github.com/cuga-project/cuga-agent) (Apache-2.0). Upstream is tracked as the `upstream` git remote.
+> Fork-specific changes so far: header branding via `[ui]` in `src/cuga/settings.toml`, a root `compose.yml`
+> for local Docker, and this notice. Everything below is the upstream README.
+
 <p align="center">
   <picture>
     <source media="(max-width: 640px)" srcset="docs/images/readme/hero-mobile.svg">

@@ -1,0 +1,42 @@
+# Local Docker Compose for Elevate AI Agent (fork of CUGA).
+#
+#   cp .env.example .env         # set GROQ_API_KEY or OPENAI_API_KEY
+#   docker compose up --build    # http://localhost:7860
+#
+# Builds the plain `Dockerfile` (python:3.12-slim). Set DOCKERFILE=Dockerfile.ubi
+# in the shell for the UBI9 production image (airgapped models, Playwright).
+# Kubernetes / Helm deployment lives under deployment/; the OpenLit observability
+# stack has its own compose file in deployment/docker-compose/openlit/.
+
+services:
+  cuga:
+    build:
+      context: .
+      dockerfile: ${DOCKERFILE:-Dockerfile}
+    image: cuga-agent:latest
+    container_name: cuga
+    # .env is excluded from the image by .dockerignore; compose injects it at run time
+    # and strips the quotes used in .env.example (docker run --env-file does not).
+    env_file:
+      - .env
+    environment:
+      CUGA_HOST: 0.0.0.0
+      DYNACONF_SERVER_PORTS__DEMO: 7860
+    # The image CMD omits --host, and `cuga start` defaults to 127.0.0.1 (it overwrites
+    # CUGA_HOST), which is unreachable through the port mapping. Bind all interfaces.
+    command: ["uv", "run", "cuga", "start", "demo_crm", "--host", "0.0.0.0", "--cuga-workspace", "/app/cuga_workspace"]
+    ports:
+      - "${CUGA_PORT:-7860}:7860"
+    volumes:
+      # Demo workspace (contacts, knowledge, playbook). Seeded by the image on first start.
+      - cuga_workspace:/app/cuga_workspace
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "python3 -c \"import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:7860/', timeout=5).status < 500 else 1)\""]
+      interval: 30s
+      timeout: 10s
+      start_period: 90s
+      retries: 3
+
+volumes:
+  cuga_workspace:

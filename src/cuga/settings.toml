@@ -321,8 +321,8 @@ iam_proxy_ca_bundle = ""  # PEM bundle path for IAM proxy TLS (independent of oi
 role_token_source = "auto"  # auto | id_token | access_token | iam_proxy
 
 [ui]
-hide_cuga_logo = false  # Set to true to hide the CUGA logo in the header
-brand_name = "CUGA Agent"  # App name shown in the header
+hide_cuga_logo = true  # Elevate AI fork: hide the upstream CUGA logo in the header
+brand_name = "Elevate AI Agent"  # App name shown in the header
 
 [server_ports]
 registry = 8001

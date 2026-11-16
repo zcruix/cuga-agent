@@ -45,6 +45,7 @@ Thumbs.db
 # Docker
 Dockerfile*
 docker-compose*
+compose*.y*ml
 .dockerignore
 
 # Secrets and certs
