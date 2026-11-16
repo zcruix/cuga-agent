@@ -217,7 +217,7 @@ const RIGHT_PANEL_META: Record<
 // ─── Mock data ────────────────────────────────────────────────────────────────
 
 const MOCK_AGENT_CONFIG: AgentConfig = {
-  name: "CUGA Default Agent",
+  name: "Elevate AI Default Agent",
   description: "A general-purpose assistant with file-system access and web search capabilities.",
   apps: [
     {
@@ -870,7 +870,7 @@ export function ChatLanding() {
         ]);
         if (cancelled) return;
 
-        let agentName = "CUGA Default Agent";
+        let agentName = "Elevate AI Default Agent";
         let agentDescription = "A general-purpose assistant with configured tools and workspace access.";
         let configVersion: number | string | null = null;
         // Only the default agent context comes from /api/agent/context (the single global

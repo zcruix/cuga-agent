@@ -131,7 +131,7 @@ async def test_initialize_supports_only_stable_v1_with_truthful_capabilities() -
 
     assert response.protocol_version == 1
     assert response.agent_info.name == "cuga"
-    assert response.agent_info.title == "CUGA"
+    assert response.agent_info.title == "Elevate AI Agent"
     assert response.agent_capabilities.load_session is False
     assert response.agent_capabilities.prompt_capabilities.image is False
     assert response.agent_capabilities.prompt_capabilities.audio is False

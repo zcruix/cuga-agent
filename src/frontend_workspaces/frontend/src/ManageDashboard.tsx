@@ -224,7 +224,7 @@ export function ManageDashboard() {
   return (
     <div className="manage-dashboard-page">
       <CugaHeader
-        title="CUGA Agent"
+        title="Elevate AI Agent"
         agentContext={agentContext ?? undefined}
         linkComponent={Link as any}
       />

@@ -302,7 +302,7 @@ const CarbonChat = ({
     resolveThreadId,
   });
   const attachmentsEnabled = knowledgeEnabled !== false && attachmentScope !== "none" && scopeEnabled && attachmentsAvailable;
-  const [assistantName, setAssistantName] = useState("CUGA Agent");
+  const [assistantName, setAssistantName] = useState("Elevate AI Agent");
   const [sourcesPanel, setSourcesPanel] = useState<{
     sources: MessageSource[];
     activeN: number | null;
@@ -382,7 +382,7 @@ const CarbonChat = ({
 
   useEffect(() => {
     let cancelled = false;
-    setAssistantName(agentId === "cuga-default" ? "CUGA Agent" : agentId);
+    setAssistantName(agentId === "cuga-default" ? "Elevate AI Agent" : agentId);
     getChatResponseUserProfile().then((profile) => {
       if (!cancelled) setAssistantName(profile.nickname);
     });

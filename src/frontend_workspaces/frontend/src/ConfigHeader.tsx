@@ -38,7 +38,7 @@ export function ConfigHeader({
 
   return (
     <CugaHeader
-      title="CUGA Agent"
+      title="Elevate AI Agent"
       agentContext={agentContext ?? undefined}
       linkComponent={Link as any}
       actions={actions}

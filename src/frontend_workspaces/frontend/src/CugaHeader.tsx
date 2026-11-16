@@ -184,7 +184,7 @@ export function CugaHeader({
 
   return (
     <Theme theme="g100" className="cuga-header-wrapper">
-      <Header aria-label="CUGA">
+      <Header aria-label="Elevate AI">
         {navigationItems.length > 0 && <HeaderMenuButton
           id="cuga-navigation-toggle"
           aria-label={navigationOpen ? "Close navigation" : "Open navigation"}
@@ -199,7 +199,7 @@ export function CugaHeader({
         <HeaderName href="/" prefix={prefix ?? ""}>
           {displayTitle}
         </HeaderName>
-        <HeaderNavigation aria-label="CUGA">
+        <HeaderNavigation aria-label="Elevate AI">
           {navigationItems.map((item) => renderNavItem(item))}
         </HeaderNavigation>
         <HeaderGlobalBar>

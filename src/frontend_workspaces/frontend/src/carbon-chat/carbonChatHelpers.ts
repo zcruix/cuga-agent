@@ -16,7 +16,22 @@ import {
 } from "@carbon/ai-chat";
 import * as api from "../api";
 
-const DEFAULT_NICKNAME = "CUGA";
+// Fallback nickname when the agent config has no name: the configured brand (ui.brand_name),
+// learned from /api/ui/config and cached; "Elevate AI Agent" until that call resolves.
+let DEFAULT_NICKNAME = "Elevate AI Agent";
+let defaultNicknameFetched = false;
+
+async function getDefaultNickname(): Promise<string> {
+  if (defaultNicknameFetched) return DEFAULT_NICKNAME;
+  try {
+    const config = await api.getUiConfig();
+    if (config.brand_name) DEFAULT_NICKNAME = config.brand_name;
+  } catch {
+    // keep the static fallback
+  }
+  defaultNicknameFetched = true;
+  return DEFAULT_NICKNAME;
+}
 
 let cachedProfileUrl: string | undefined = undefined;
 let profileUrlFetched = false;
@@ -55,7 +70,7 @@ async function getAgentNickname(useDraft: boolean, agentId: string): Promise<str
   } catch {
     // A profile lookup must not prevent chat; do not cache a failed lookup.
   }
-  return agentId === "cuga-default" ? DEFAULT_NICKNAME : agentId;
+  return agentId === "cuga-default" ? await getDefaultNickname() : agentId;
 }
 
 export async function getResponseUserProfile(useDraft = false, agentId = api.getKnowledgeAgentId()) {

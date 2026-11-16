@@ -24,8 +24,8 @@ from cuga.backend.server.config_store import (
 router = APIRouter(prefix="/api/agents", tags=["agents"])
 
 DEFAULT_AGENT_ID = "cuga-default"
-_DEFAULT_NAME = "CUGA Default Agent"
-_DEFAULT_DESCRIPTION = "Default CUGA agent with policy engine, tools, and chat."
+_DEFAULT_NAME = "Elevate AI Default Agent"
+_DEFAULT_DESCRIPTION = "Default Elevate AI agent with policy engine, tools, and chat."
 
 
 class CreateAgentRequest(BaseModel):

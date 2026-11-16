@@ -41,10 +41,10 @@ export async function getUiConfig(): Promise<UiConfig> {
   if (uiConfigCache !== null) return uiConfigCache;
   const base = getApiBaseUrl();
   const res = await fetch(`${base}/api/ui/config`, { credentials: "include" });
-  const data = await res.json().catch(() => ({ hide_cuga_logo: false, brand_name: "CUGA Agent" }));
+  const data = await res.json().catch(() => ({ hide_cuga_logo: false, brand_name: "Elevate AI Agent" }));
   uiConfigCache = {
     hide_cuga_logo: !!data.hide_cuga_logo,
-    brand_name: data.brand_name && String(data.brand_name).trim() ? String(data.brand_name).trim() : "CUGA Agent",
+    brand_name: data.brand_name && String(data.brand_name).trim() ? String(data.brand_name).trim() : "Elevate AI Agent",
     agent_registry: !!data.agent_registry,
     evolve_memory_enabled: !!data.evolve_memory_enabled,
   };

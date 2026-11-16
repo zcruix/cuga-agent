@@ -355,7 +355,7 @@ async def open_acp_process_session(
                 connection.initialize(
                     PROTOCOL_VERSION,
                     ClientCapabilities(),
-                    Implementation(name="cuga", title="CUGA", version="1"),
+                    Implementation(name="cuga", title="Elevate AI Agent", version="1"),
                 )
             )
             response = await connection.new_session(

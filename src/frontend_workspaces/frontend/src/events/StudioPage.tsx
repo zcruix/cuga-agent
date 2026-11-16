@@ -1305,7 +1305,7 @@ export function StudioPage() {
     // events layer not mounted → this route shouldn't be reachable; guide back.
     return (
       <div className="studio-page">
-        <CugaHeader title="CUGA Agent" linkComponent={Link as any} />
+        <CugaHeader title="Elevate AI Agent" linkComponent={Link as any} />
         <div role="main" id="main-content" tabIndex={-1} className="studio-content">
           <InlineNotification kind="info" lowContrast hideCloseButton
             title="Studio is off"
@@ -1339,7 +1339,7 @@ export function StudioPage() {
 
   return (
     <div className="studio-page">
-      <CugaHeader title="CUGA Agent" linkComponent={Link as any} />
+      <CugaHeader title="Elevate AI Agent" linkComponent={Link as any} />
       <div role="main" id="main-content" tabIndex={-1} className="studio-content">
         <div className="studio-heading-row">
           <div>

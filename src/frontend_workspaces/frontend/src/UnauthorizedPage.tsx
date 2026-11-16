@@ -11,7 +11,7 @@ export function UnauthorizedPage() {
 
   return (
     <div className="unauthorized-page">
-      <CugaHeader title="CUGA Agent" />
+      <CugaHeader title="Elevate AI Agent" />
       <div role="main" id="main-content" tabIndex={-1} className="unauthorized-content">
         <Tile>
           <Stack gap={6}>

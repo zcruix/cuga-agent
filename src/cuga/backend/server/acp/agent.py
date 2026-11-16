@@ -99,7 +99,7 @@ class CugaAcpAgent:
                 sessionCapabilities=SessionCapabilities(),
             ),
             authMethods=[],
-            agentInfo=Implementation(name="cuga", title="CUGA", version=cuga_version),
+            agentInfo=Implementation(name="cuga", title="Elevate AI Agent", version=cuga_version),
         )
 
     async def new_session(

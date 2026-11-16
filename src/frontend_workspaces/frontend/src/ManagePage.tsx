@@ -1546,7 +1546,7 @@ export function ManagePage() {
   return (
     <div className="manage-page">
       <CugaHeader
-        title="CUGA Agent"
+        title="Elevate AI Agent"
         agentContext={agentContext ?? undefined}
         linkComponent={Link}
         onOpenSecrets={() => setSecretsModalOpen(true)}
